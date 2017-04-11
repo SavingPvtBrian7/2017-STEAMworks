@@ -269,35 +269,38 @@ public class OI
                             "Shoot",
                             "Curve", "-125", "0.5");
                     break;
-        	case "RIGHT Gear Position 5":
-        	    result = new ParameterizedCommandGroup(drivetrain, launcher, intake, this,
-        		    "Drive Speed", "" + -(129 - RobotMap.ROBOT_LENGTH), "0.3",
-        		    "Turn Alliance Independent Timeout", "-60", "4",
-       			    "Drive", "-24.64");
-       		    break;
+        	    case "RIGHT Gear Position 5":
+        	        result = new ParameterizedCommandGroup(drivetrain, launcher, intake, this,
+        		            "Drive Speed", "" + -(129 - RobotMap.ROBOT_LENGTH), "0.3",
+        		            "Turn Alliance Independent Timeout", "-60", "4",
+       			            "Drive", "-24.64");
+       		        break;
                 case "LEFT Gear Position 4":
                     result = new ParameterizedCommandGroup(drivetrain, launcher, intake, this,
-                        "Drive Speed", "" + -(133 - RobotMap.ROBOT_LENGTH), "0.3", // This drives forward 4 inches farther than the left side
-                        "Turn Alliance Independent Timeout", "60", "4",
-                        "Drive", "-24.64");
+                            "Drive Speed", "" + -(133 - RobotMap.ROBOT_LENGTH), "0.3", // This drives forward 4 inches farther than the left side
+                            "Turn Alliance Independent Timeout", "60", "4",
+                            "Drive", "-24.64");
                     break;
                 case "Drive to Hopper and Shoot from Boiler Position 3":
                     // Drive to the hopper, wait there to get balls, drive to the boiler
                     result = new ParameterizedCommandGroup(drivetrain, launcher, intake, this,
-                        "Straight and Curve", ""+((28+150)-RobotMap.ROBOT_LENGTH), "1", "115", "0.9", "false",
-				    "Intake", "ON",
-        			    "Drive Speed", "-110", "0.6",
-        			    "Fast Turn", "45",
-        			    "Drive Speed", "125", "0.6");
+                            "Straight and Curve", ""+((28+150)-RobotMap.ROBOT_LENGTH), "1", "115", "0.9", "false",
+			    	        "Intake", "ON",
+        			        "Drive Speed", "-110", "0.6",
+        			        "Fast Turn", "45",
+        			        "Drive Speed", "125", "0.6");
                     break;
                 default:
                     break;
             }
-            if (result == null)
+            if (result == null) 
+            {
                 m_logger.error("No autonomous preset matches " + name);
+            }
             else
-
+            {
                 m_logger.info("Found " + name);
+            }
             return result;
         }
         else if (strategy.startsWith("Replay: "))
